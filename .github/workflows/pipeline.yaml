@@ -1,12 +1,10 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: CI/CD Pipeline
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build-and-push:
     runs-on:  ubuntu-latest

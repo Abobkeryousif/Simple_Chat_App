@@ -1,21 +1,41 @@
-﻿<div class="container pt-3">
-    <div class="row">
-        <div class="col-md-6">
-            <span>Your Name:</span><br />
-            <input type="text" id="txtUser"/><br />
-            <span>Your Message</span><br />
-            <textarea class="mt-1" rows="10" cols="40" id="txtMessage"></textarea><br />
-            <button type="submit" class="btn btn-info" id="btnSend">Send Message</button>
-        </div>
+﻿<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0" style="border-radius: 15px;">
+                <div class="card-header bg-primary text-white p-3 shadow-sm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0">الدردشة العامة</h5>
+                            <small id="connectionStatus" class="text-white-50">جاري الاتصال...</small>
+                        </div>
+                        <div class="badge bg-success rounded-pill">Online</div>
+                    </div>
+                </div>
 
-        <div class="col-md-6">
-            <h3>Message List:</h3>
-            <ul id="list" class="alert alert-info">
-            </ul>
+                <div class="card-body bg-light overflow-auto" id="messageContainer" style="height: 400px; display: flex; flex-direction: column-reverse;">
+                    <ul id="list" class="list-unstyled mb-0">
+                    </ul>
+                </div>
+
+                <div class="card-footer bg-white p-3 border-0">
+                    <div class="mb-3">
+                        <input type="text" id="txtUser" class="form-control form-control-sm border-0 bg-light" placeholder="اسمك المستعار..." />
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="txtMessage" class="form-control border-0 bg-light" placeholder="اكتب رسالتك هنا..." autocomplete="off" />
+                        <button class="btn btn-primary px-4" type="button" id="btnSend">
+                            إرسال <i class="bi bi-send-fill ms-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/site.js"></script>
+<style>
+    #messageContainer::-webkit-scrollbar { width: 5px; }
+    #messageContainer::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
+    .message-item { margin-bottom: 10px; padding: 10px; border-radius: 10px; max-width: 80%; }
+    .msg-received { background: #fff; align-self: flex-start; border: 1px solid #dee2e6; }
+</style>
